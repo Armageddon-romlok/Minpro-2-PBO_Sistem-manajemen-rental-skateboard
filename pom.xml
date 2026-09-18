@@ -10,4 +10,5 @@
         <maven.compiler.release>26</maven.compiler.release>
         <exec.mainClass>com.mycompany.minpro_1.Minpro_1</exec.mainClass>
     </properties>
+    <name>MinproPBO</name>
 </project>
