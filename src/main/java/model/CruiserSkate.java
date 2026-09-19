@@ -5,27 +5,30 @@
 package model;
 
 public class CruiserSkate extends Skateboard {
-    private String panjangPapan;
+    private String panjangPapan; // Contoh: 27 inch
 
     public CruiserSkate(String idSkateboard, String merk, double hargaSewa, String panjangPapan) {
         super(idSkateboard, merk, hargaSewa);
         setPanjangPapan(panjangPapan);
     }
 
-    public String getPanjangPapan() { return panjangPapan; }
+    public String getPanjangPapan() {
+        return panjangPapan;
+    }
+
     public void setPanjangPapan(String panjangPapan) {
-        if (panjangPapan != null && !panjangPapan.trim().isEmpty()) {
-            this.panjangPapan = panjangPapan;
+        if (panjangPapan == null || panjangPapan.trim().isEmpty()) {
+            this.panjangPapan = "28 inch";
         } else {
-            this.panjangPapan = "28 inch (Default)";
+            this.panjangPapan = panjangPapan;
         }
     }
 
-    public void tampilkanInfoCruiser() {
-        System.out.println("------------------------------------------");
-        System.out.println("[KATEGORI: CRUISER SKATE]");
-        super.tampilkanInfo();
-        System.out.println("Panjang Papan : " + panjangPapan);
-        System.out.println("------------------------------------------");
+    public void tampilkanDetailCruiser() {
+        System.out.println("Tipe Papan    : Cruiser Skate");
+        System.out.println("ID Papan      : " + getIdSkateboard());
+        System.out.println("Merk          : " + getMerk());
+        System.out.println("Tarif Sewa/Hari: Rp " + getHargaSewa());
+        System.out.println("Panjang Papan : " + getPanjangPapan());
     }
 }

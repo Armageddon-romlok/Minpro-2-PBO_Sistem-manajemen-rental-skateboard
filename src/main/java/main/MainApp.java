@@ -4,105 +4,182 @@
  */
 package main;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import model.CruiserSkate;
+import model.Penyewa;
 import model.Skateboard;
 import model.StreetSkate;
 import service.SkateboardService;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class MainApp {
     public static void main(String[] args) {
-        SkateboardService service = new SkateboardService();
         Scanner scanner = new Scanner(System.in);
-        boolean berjalan = true;
+        SkateboardService service = new SkateboardService();
+        boolean running = true;
 
-        while (berjalan) {
-            System.out.println("\n===============================");
-            System.out.println("  SISTEM RENTAL SKATEBOARD ");
-            System.out.println("===============================");
-            System.out.println("1. Tampilkan Semua Skateboard");
-            System.out.println("2. Tambah Skateboard Baru");
-            System.out.println("3. Hapus Skateboard");
-            System.out.println("4. Keluar");
-            System.out.println("===============================");
-            System.out.print("Pilih menu (1-4): ");
+        while (running) {
+            System.out.println("\n=========================================");
+            System.out.println("  SISTEM MANAJEMEN RENTAL SKATEBOARD");
+            System.out.println("=========================================");
+            System.out.println("1. Tambah Data Rental (Create)");
+            System.out.println("2. Tampilkan Data Rental (Read)");
+            System.out.println("3. Update Lama Sewa (Update)");
+            System.out.println("4. Hapus Data Rental (Delete)");
+            System.out.println("5. Keluar");
+            System.out.println("=========================================");
+            System.out.print("Pilih menu (1-5): ");
 
+            int pilihan = 0;
             try {
-                int pilihan = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (pilihan) {
-                    case 1:
-                        System.out.println("\n=== DAFTAR KOLEKSI SKATEBOARD ===");
-                        if (service.getDaftarSkateboard().isEmpty()) {
-                            System.out.println("Belum ada data.");
-                        } else {
-                            for (Skateboard s : service.getDaftarSkateboard()) {
-                                if (s instanceof StreetSkate) {
-                                    ((StreetSkate) s).tampilkanInfoStreet();
-                                } else if (s instanceof CruiserSkate) {
-                                    ((CruiserSkate) s).tampilkanInfoCruiser();
-                                }
-                            }
-                        }
-                        break;
-
-                    case 2:
-                        System.out.println("\n=== TAMBAH SKATEBOARD BARU ===");
-                        System.out.println("1. Street Skate");
-                        System.out.println("2. Cruiser Skate");
-                        System.out.print("Pilih jenis (1-2): ");
-                        int jenis = scanner.nextInt();
-                        scanner.nextLine();
-
-                        System.out.print("Masukkan ID Skateboard : ");
-                        String id = scanner.nextLine();
-                        System.out.print("Masukkan Merk          : ");
-                        String merk = scanner.nextLine();
-                        System.out.print("Masukkan Harga Sewa    : ");
-                        double harga = scanner.nextDouble();
-                        scanner.nextLine();
-
-                        if (jenis == 1) {
-                            System.out.print("Masukkan Ukuran Roda   : ");
-                            String roda = scanner.nextLine();
-                            service.tambahSkateboard(new StreetSkate(id, merk, harga, roda));
-                        } else if (jenis == 2) {
-                            System.out.print("Masukkan Panjang Papan : ");
-                            String panjang = scanner.nextLine();
-                            service.tambahSkateboard(new CruiserSkate(id, merk, harga, panjang));
-                        } else {
-                            System.out.println(">> Pilihan jenis tidak valid!");
-                        }
-                        break;
-
-                    case 3:
-                        System.out.println("\n=== HAPUS SKATEBOARD ===");
-                        System.out.print("Masukkan ID Skateboard yang dihapus: ");
-                        String idHapus = scanner.nextLine();
-                        
-                        if (service.hapusSkateboard(idHapus)) {
-                            System.out.println(">> Skateboard berhasil dihapus!");
-                        } else {
-                            System.out.println(">> ID Skateboard tidak ditemukan!");
-                        }
-                        break;
-
-                    case 4:
-                        berjalan = false;
-                        System.out.println("\nProgram dihentikan secara aman. Terima kasih!");
-                        break;
-
-                    default:
-                        System.out.println(">> Menu tidak tersedia. Pilih angka 1-4.");
-                }
-
-            // Menangkap error jika user memasukkan huruf saat diminta angka
+                pilihan = scanner.nextInt();
+                scanner.nextLine(); // membersihkan buffer enter
             } catch (InputMismatchException e) {
-                System.out.println(">> ERROR CRASH DICEGAH: Input harus berupa angka!");
-                scanner.nextLine(); // Buang input huruf yang nyangkut di buffer
+                System.out.println(">> ERROR: Masukan harus berupa angka!");
+                scanner.nextLine();
+                continue;
+            }
+
+            switch (pilihan) {
+                case 1:
+                    System.out.println("\n=== TAMBAH DATA RENTAL ===");
+                    System.out.print("Masukkan ID Rental (misal: RNT-03): ");
+                    String idRental = scanner.nextLine();
+
+                    if (service.isIdRentalAda(idRental)) {
+                        System.out.println(">> ERROR: ID Rental sudah terdaftar! Gunakan ID lain.");
+                        break;
+                    }
+
+                    System.out.print("Masukkan Nama Penyewa           : ");
+                    String nama = scanner.nextLine();
+
+                    int lamaSewa = 0;
+                    try {
+                        System.out.print("Masukkan Lama Sewa (Hari)       : ");
+                        lamaSewa = scanner.nextInt();
+                        scanner.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println(">> ERROR: Lama sewa harus berupa angka bulat!");
+                        scanner.nextLine();
+                        break;
+                    }
+
+                    System.out.println("\nPilih Jenis Skateboard:");
+                    System.out.println("1. Street Skate");
+                    System.out.println("2. Cruiser Skate");
+                    System.out.print("Pilihan (1-2): ");
+                    int jenis = 0;
+                    try {
+                        jenis = scanner.nextInt();
+                        scanner.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println(">> ERROR: Pilihan jenis harus berupa angka!");
+                        scanner.nextLine();
+                        break;
+                    }
+
+                    System.out.print("Masukkan ID Papan               : ");
+                    String idPapan = scanner.nextLine();
+                    System.out.print("Masukkan Merk Papan             : ");
+                    String merk = scanner.nextLine();
+
+                    double tarif = 0;
+                    try {
+                        System.out.print("Masukkan Tarif Sewa per Hari    : ");
+                        tarif = scanner.nextDouble();
+                        scanner.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println(">> ERROR: Tarif harus berupa angka!");
+                        scanner.nextLine();
+                        break;
+                    }
+
+                    Skateboard papanDipilih = null;
+                    if (jenis == 1) {
+                        System.out.print("Masukkan Ukuran Roda (misal: 52mm): ");
+                        String roda = scanner.nextLine();
+                        papanDipilih = new StreetSkate(idPapan, merk, tarif, roda);
+                    } else if (jenis == 2) {
+                        System.out.print("Masukkan Panjang Papan (misal: 28 inch): ");
+                        String panjang = scanner.nextLine();
+                        papanDipilih = new CruiserSkate(idPapan, merk, tarif, panjang);
+                    } else {
+                        System.out.println(">> ERROR: Jenis skateboard tidak valid!");
+                        break;
+                    }
+
+                    service.tambahRental(new Penyewa(idRental, nama, lamaSewa, papanDipilih));
+                    System.out.println(">> Data rental berhasil ditambahkan!");
+                    break;
+
+                case 2:
+                    System.out.println("\n=== DAFTAR TRANSAKSI RENTAL SKATEBOARD ===");
+                    if (service.getDaftarRental().isEmpty()) {
+                        System.out.println("Belum ada data rental yang tersimpan.");
+                    } else {
+                        for (Penyewa p : service.getDaftarRental()) {
+                            System.out.println("--------------------------------------------------");
+                            System.out.println("ID Rental     : " + p.getIdRental());
+                            System.out.println("Penyewa       : " + p.getNamaPenyewa());
+                            System.out.println("Lama Sewa     : " + p.getLamaSewa() + " Hari");
+                            
+                            // Menampilkan detail spesifik berdasarkan subclass
+                            if (p.getSkateboard() instanceof StreetSkate) {
+                                ((StreetSkate) p.getSkateboard()).tampilkanDetailStreet();
+                            } else if (p.getSkateboard() instanceof CruiserSkate) {
+                                ((CruiserSkate) p.getSkateboard()).tampilkanDetailCruiser();
+                            }
+
+                            System.out.println("TOTAL BIAYA   : Rp " + p.hitungTotalBiaya());
+                            System.out.println("--------------------------------------------------");
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("\n=== UPDATE LAMA SEWA ===");
+                    System.out.print("Masukkan ID Rental yang ingin diupdate: ");
+                    String idUpdate = scanner.nextLine();
+
+                    int lamaBaru = 0;
+                    try {
+                        System.out.print("Masukkan Lama Sewa yang Baru (Hari) : ");
+                        lamaBaru = scanner.nextInt();
+                        scanner.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println(">> ERROR: Lama sewa harus berupa angka bulat!");
+                        scanner.nextLine();
+                        break;
+                    }
+
+                    if (service.updateLamaSewa(idUpdate, lamaBaru)) {
+                        System.out.println(">> Lama sewa berhasil diupdate!");
+                    } else {
+                        System.out.println(">> ERROR: Data dengan ID Rental tersebut tidak ditemukan.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("\n=== HAPUS DATA RENTAL ===");
+                    System.out.print("Masukkan ID Rental yang ingin dihapus: ");
+                    String idHapus = scanner.nextLine();
+
+                    if (service.hapusRental(idHapus)) {
+                        System.out.println(">> Data rental berhasil dihapus!");
+                    } else {
+                        System.out.println(">> ERROR: Data dengan ID Rental tersebut tidak ditemukan.");
+                    }
+                    break;
+
+                case 5:
+                    running = false;
+                    System.out.println("\nProgram dihentikan secara aman. Terima kasih!");
+                    break;
+
+                default:
+                    System.out.println(">> Pilihan tidak tersedia. Silakan pilih 1-5.");
+                    break;
             }
         }
         scanner.close();

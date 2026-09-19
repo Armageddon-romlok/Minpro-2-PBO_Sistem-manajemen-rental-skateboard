@@ -5,27 +5,30 @@
 package model;
 
 public class StreetSkate extends Skateboard {
-    private String ukuranRoda;
+    private String ukuranRoda; // Contoh: 52mm
 
     public StreetSkate(String idSkateboard, String merk, double hargaSewa, String ukuranRoda) {
         super(idSkateboard, merk, hargaSewa);
         setUkuranRoda(ukuranRoda);
     }
 
-    public String getUkuranRoda() { return ukuranRoda; }
+    public String getUkuranRoda() {
+        return ukuranRoda;
+    }
+
     public void setUkuranRoda(String ukuranRoda) {
-        if (ukuranRoda != null && !ukuranRoda.trim().isEmpty()) {
-            this.ukuranRoda = ukuranRoda;
+        if (ukuranRoda == null || ukuranRoda.trim().isEmpty()) {
+            this.ukuranRoda = "52mm";
         } else {
-            this.ukuranRoda = "52mm (Default)";
+            this.ukuranRoda = ukuranRoda;
         }
     }
 
-    public void tampilkanInfoStreet() {
-        System.out.println("------------------------------------------");
-        System.out.println("[KATEGORI: STREET SKATE]");
-        super.tampilkanInfo();
-        System.out.println("Ukuran Roda   : " + ukuranRoda);
-        System.out.println("------------------------------------------");
+    public void tampilkanDetailStreet() {
+        System.out.println("Tipe Papan    : Street Skate");
+        System.out.println("ID Papan      : " + getIdSkateboard());
+        System.out.println("Merk          : " + getMerk());
+        System.out.println("Tarif Sewa/Hari: Rp " + getHargaSewa());
+        System.out.println("Ukuran Roda   : " + getUkuranRoda());
     }
 }

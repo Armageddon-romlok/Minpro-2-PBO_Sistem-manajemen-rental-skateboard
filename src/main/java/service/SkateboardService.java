@@ -4,38 +4,61 @@
  */
 package service;
 
+import java.util.ArrayList;
 import model.CruiserSkate;
+import model.Penyewa;
 import model.Skateboard;
 import model.StreetSkate;
-import java.util.ArrayList;
 
 public class SkateboardService {
-    private ArrayList<Skateboard> daftarSkateboard;
+    private ArrayList<Penyewa> daftarRental;
 
     public SkateboardService() {
-        daftarSkateboard = new ArrayList<>();
-        isiDummyData();
+        daftarRental = new ArrayList<>();
+        inisialisasiDummyData();
     }
 
-    // Dummy data agar langsung tampil saat fitur Read dijalankan
-    private void isiDummyData() {
-        daftarSkateboard.add(new StreetSkate("SKT-01", "Element", 50000, "52mm"));
-        daftarSkateboard.add(new CruiserSkate("CRS-01", "Penny", 45000, "27 inch"));
+    private void inisialisasiDummyData() {
+        // Dummy 1: Rental Street Skate
+        Skateboard s1 = new StreetSkate("SKT-01", "Element", 50000.0, "52mm");
+        daftarRental.add(new Penyewa("RNT-01", "Farel Wijaya", 2, s1));
+
+        // Dummy 2: Rental Cruiser Skate
+        Skateboard s2 = new CruiserSkate("CRS-01", "Penny Board", 45000.0, "27 inch");
+        daftarRental.add(new Penyewa("RNT-02", "Budi Santoso", 3, s2));
     }
 
-    public ArrayList<Skateboard> getDaftarSkateboard() {
-        return daftarSkateboard;
+    public ArrayList<Penyewa> getDaftarRental() {
+        return daftarRental;
     }
 
-    public void tambahSkateboard(Skateboard skateboardBaru) {
-        daftarSkateboard.add(skateboardBaru);
-        System.out.println(">> Data berhasil ditambahkan ke dalam sistem!");
+    public boolean isIdRentalAda(String idRental) {
+        for (Penyewa p : daftarRental) {
+            if (p.getIdRental().equalsIgnoreCase(idRental)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean hapusSkateboard(String idSkateboard) {
-        for (int i = 0; i < daftarSkateboard.size(); i++) {
-            if (daftarSkateboard.get(i).getIdSkateboard().equalsIgnoreCase(idSkateboard)) {
-                daftarSkateboard.remove(i);
+    public void tambahRental(Penyewa penyewa) {
+        daftarRental.add(penyewa);
+    }
+
+    public boolean updateLamaSewa(String idRental, int lamaSewaBaru) {
+        for (Penyewa p : daftarRental) {
+            if (p.getIdRental().equalsIgnoreCase(idRental)) {
+                p.setLamaSewa(lamaSewaBaru);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hapusRental(String idRental) {
+        for (int i = 0; i < daftarRental.size(); i++) {
+            if (daftarRental.get(i).getIdRental().equalsIgnoreCase(idRental)) {
+                daftarRental.remove(i);
                 return true;
             }
         }

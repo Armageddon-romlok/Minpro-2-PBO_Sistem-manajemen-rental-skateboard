@@ -7,39 +7,47 @@ package model;
 public class Skateboard {
     protected String idSkateboard;
     protected String merk;
-    protected double hargaSewa;
+    protected double hargaSewa; // per hari
 
     public Skateboard(String idSkateboard, String merk, double hargaSewa) {
-        this.idSkateboard = idSkateboard;
+        setIdSkateboard(idSkateboard);
         setMerk(merk);
         setHargaSewa(hargaSewa);
     }
 
-    public String getIdSkateboard() { return idSkateboard; }
+    public String getIdSkateboard() {
+        return idSkateboard;
+    }
 
-    public String getMerk() { return merk; }
+    public void setIdSkateboard(String idSkateboard) {
+        if (idSkateboard == null || idSkateboard.trim().isEmpty()) {
+            this.idSkateboard = "SKT-UNKNOWN";
+        } else {
+            this.idSkateboard = idSkateboard;
+        }
+    }
+
+    public String getMerk() {
+        return merk;
+    }
+
     public void setMerk(String merk) {
-        if (merk != null && !merk.trim().isEmpty()) {
+        if (merk == null || merk.trim().isEmpty()) {
+            this.merk = "Tanpa Merk";
+        } else {
             this.merk = merk;
-        } else {
-            System.out.println(">> Peringatan: Merk tidak boleh kosong! Menggunakan default 'Tidak Diketahui'.");
-            this.merk = "Tidak Diketahui";
         }
     }
 
-    public double getHargaSewa() { return hargaSewa; }
+    public double getHargaSewa() {
+        return hargaSewa;
+    }
+
     public void setHargaSewa(double hargaSewa) {
-        if (hargaSewa >= 10000) {
-            this.hargaSewa = hargaSewa;
+        if (hargaSewa < 10000) {
+            this.hargaSewa = 10000;
         } else {
-            System.out.println(">> Peringatan: Harga sewa minimal Rp 10.000! Diset ke default Rp 50.000.");
-            this.hargaSewa = 50000;
+            this.hargaSewa = hargaSewa;
         }
-    }
-
-    public void tampilkanInfo() {
-        System.out.println("ID Skateboard : " + idSkateboard);
-        System.out.println("Merk          : " + merk);
-        System.out.println("Harga / Hari  : Rp " + hargaSewa);
     }
 }
