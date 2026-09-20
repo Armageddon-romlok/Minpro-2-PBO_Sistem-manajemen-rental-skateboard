@@ -22,6 +22,8 @@ Pada tahap ini, sistem menjalankan pengujian fitur pembaruan data (Update) melal
 <img width="427" height="130" alt="{3DBAB719-C41B-4691-88EF-4C875570E601}" src="https://github.com/user-attachments/assets/28e1e4f6-5ce3-49de-80af-fe8bece1ae65" />
 <img width="545" height="527" alt="{B35D8EAE-7ABA-4425-8496-56A57B767B1B}" src="https://github.com/user-attachments/assets/9e2a7916-cfc2-4fda-86bf-79077ca674ef" />
 
+Pada tahap ini, sistem menguji fungsi penghapusan data (Delete) melalui opsi 4 dengan memasukkan ID Rental RNT-02. Method hapusRental pada SkateboardService melakukan pencarian elemen yang cocok di dalam ArrayList, lalu menghapus objek transaksi tersebut dan menampilkan notifikasi keberhasilan. Untuk memverifikasi proses tersebut, pengguna kembali memilih opsi 2 (Read). Hasil tampilan konsol membuktikan bahwa data RNT-02 (penyewa Budi Santoso dengan tipe papan Cruiser Skate) telah sepenuhnya terhapus dari memori, menyisakan dua transaksi aktif lainnya, yaitu RNT-01 dan RNT-03.
+
 
 <img width="695" height="402" alt="{B9867F18-A226-4ACC-8DD4-FBA5F74CDD73}" src="https://github.com/user-attachments/assets/0cbe43d2-28f0-4e49-9e94-b43998e39ff8" />
 
