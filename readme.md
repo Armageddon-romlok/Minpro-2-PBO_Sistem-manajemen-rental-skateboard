@@ -3,6 +3,7 @@
 Saat program dijalankan, sistem menampilkan antarmuka berbasis konsol yang menyediakan lima menu utama untuk mengelola transaksi rental skateboard, mencakup operasi penambahan data (Create), penampilan riwayat sewa (Read), pembaruan durasi hari (Update), penghapusan data (Delete), serta opsi untuk keluar dari aplikasi. Seluruh pembacaan input menu ini telah diproteksi menggunakan blok try-catch guna menangani InputMismatchException, sehingga jika pengguna memasukkan karakter selain angka, program tidak akan mengalami crash melainkan langsung menampilkan pesan peringatan dan me-refresh tampilan menu.
 
 <img width="472" height="541" alt="{7D6ECA6C-EFDB-41D9-A150-03A974B7EB57}" src="https://github.com/user-attachments/assets/a492d1f6-984f-4ad3-bf36-ea4ea237bb81" />
+
 Saat pertama kali program dijalankan dan pengguna memilih opsi 2, sistem mengeksekusi operasi pembacaan data (Read) dengan melakukan iterasi terhadap ArrayList pada SkateboardService. Tampilan ini mengonfirmasi berjalannya inisialisasi dummy data awal, yaitu dua transaksi rental yang memuat masing-masing tipe turunan papan: transaksi RNT-01 dengan unit StreetSkate (atribut ukuran roda 52mm) serta transaksi RNT-02 dengan unit CruiserSkate (atribut panjang papan 27 inch). Sistem secara dinamis mengenali tipe objek melalui pengecekan instanceof untuk mencetak detail spesifik papan dan menghitung total biaya sewa berdasarkan perkalian tarif per hari dengan durasi sewa.
 
 
