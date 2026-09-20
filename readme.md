@@ -51,7 +51,8 @@ Pada Menu 1: Saat diminta Masukkan Lama Sewa (Hari): atau Masukkan Tarif Sewa pe
 <img width="429" height="160" alt="{68A3C2BB-C981-4CF5-AD0F-757C35043D12}" src="https://github.com/user-attachments/assets/7d5c5fd4-d7f8-4983-91f7-617d94dee616" />
 
 
-4.Uji ID Tidak Ditemukan (Menu 3 atau Menu 4)
+4.Uji ID Tidak Ditemukan
+Saat Pengguna memasukan ID rental yang tidak terdaftar dalam sistem pada menu upsdate atau delete.
 
 <img width="575" height="149" alt="{5772C37D-5924-41F5-BF95-CA594DA704A9}" src="https://github.com/user-attachments/assets/898c4c3d-11a6-4b78-a1f7-2387a5fa1a06" />
 <img width="538" height="86" alt="{6FC23287-4430-463F-A59F-22AAC1427F34}" src="https://github.com/user-attachments/assets/a553be92-675a-473c-85c1-cd9cde4318f3" />
