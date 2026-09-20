@@ -29,7 +29,9 @@ Pada tahap ini, sistem menguji fungsi penghapusan data (Delete) melalui opsi 4 d
 
 Pada tahap akhir pengujian, pengguna memilih opsi 5 untuk keluar dari aplikasi. Sistem merespons instruksi tersebut dengan mengubah variabel kontrol perulangan while menjadi false, menutup objek Scanner, dan mencetak pesan terminasi program secara aman sebelum eksekusi ditutup dengan status BUILD SUCCESS.
 
-PEnanganan error:
+Penanganan error:
+1. Typo Huruf pada menu utama(try-catch)
+Saat muncul Pilih menu (1-5):, ketik huruf (misal: a atau woi), lalu tekan Enter.
 <img width="385" height="69" alt="{1E86FA48-A30C-491C-855A-C7BE1816ECD3}" src="https://github.com/user-attachments/assets/3b1141b0-16a8-4cfc-b977-eab488d6cfc8" />
 
 <img width="498" height="129" alt="{70C73EC3-6B7E-4C12-911A-177B2CAC1C77}" src="https://github.com/user-attachments/assets/a1f09b88-2ad3-4c36-b1c4-da179f838f75" />
