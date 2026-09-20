@@ -33,6 +33,7 @@ Pada tahap akhir pengujian, pengguna memilih opsi 5 untuk keluar dari aplikasi. 
 
 Penanganan error:
 
+
 1. Typo Huruf pada menu utama(try-catch)
 Saat muncul Pilih menu (1-5):, ketik huruf (misal: a atau woi), lalu tekan Enter.
 
