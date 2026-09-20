@@ -46,10 +46,11 @@ Pada Masukkan ID Rental:, ketik ID yang sudah ada di data, yaitu RNT-01, lalu te
 
 
 3.Uji Typo Huruf pada Angka Input
-Pada Menu 1: Saat diminta Masukkan Lama Sewa (Hari): atau Masukkan Tarif Sewa per Hari:, ketik huruf (misal: tiga atau seratus ribu).
+Pada Menu 1: Saat diminta Masukkan Lama Sewa (Hari): atau Masukkan Tarif Sewa per Hari:, ketik huruf (misalnya enam).
 
 <img width="429" height="160" alt="{68A3C2BB-C981-4CF5-AD0F-757C35043D12}" src="https://github.com/user-attachments/assets/7d5c5fd4-d7f8-4983-91f7-617d94dee616" />
 
+4.
 <img width="434" height="63" alt="image" src="https://github.com/user-attachments/assets/c7b8996c-f69e-43ae-9006-bca7d1a27b38" />
 
 <img width="575" height="149" alt="{5772C37D-5924-41F5-BF95-CA594DA704A9}" src="https://github.com/user-attachments/assets/898c4c3d-11a6-4b78-a1f7-2387a5fa1a06" />
