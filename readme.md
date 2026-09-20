@@ -16,6 +16,8 @@ Pada tahap ini dilakukan pengujian fungsi penambahan data (Create) yang dilanjut
 <img width="437" height="144" alt="image" src="https://github.com/user-attachments/assets/038de5b8-e0f8-4901-a0ef-cf458f323e8c" />
 <img width="488" height="233" alt="{15B473DF-1A5A-49C6-9D9C-15032D2B18E6}" src="https://github.com/user-attachments/assets/d15f5f6b-e860-47cb-bfb5-e8c1ff788efb" />
 
+Pada tahap ini, sistem menjalankan pengujian fitur pembaruan data (Update) melalui opsi 3 untuk mengubah durasi sewa pada transaksi RNT-03 dari yang semula 6 hari menjadi 9 hari. Nilai baru tersebut diproses melalui method updateLamaSewa pada SkateboardService dan divalidasi oleh setter kelas Penyewa sebelum memori diperbarui. Setelah notifikasi keberhasilan ditampilkan, pengguna kembali memilih opsi 2 (Read) untuk memverifikasi perubahan data. Tampilan konsol mengonfirmasi bahwa atribut durasi sewa pada data rental milik Luthfi telah berubah menjadi 9 hari, dan sistem secara otomatis mengkalkulasi ulang total biaya menjadi Rp 594000.0 hasil perkalian tarif harian Rp 66000.0 dengan durasi baru tersebut.
+
 
 <img width="427" height="130" alt="{3DBAB719-C41B-4691-88EF-4C875570E601}" src="https://github.com/user-attachments/assets/28e1e4f6-5ce3-49de-80af-fe8bece1ae65" />
 <img width="545" height="527" alt="{B35D8EAE-7ABA-4425-8496-56A57B767B1B}" src="https://github.com/user-attachments/assets/9e2a7916-cfc2-4fda-86bf-79077ca674ef" />
