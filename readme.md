@@ -1,9 +1,6 @@
-Tambah Data Rental (Create): Fitur untuk mencatat transaksi penyewaan baru. Pengguna dapat memasukkan detail penyewa (No. Identitas, Nama, No. HP), spesifikasi skateboard (ID, Merk, Jenis), serta harga dan lama sewa. Data ini disimpan secara dinamis menggunakan implementasi Collection ArrayList.
+<img width="436" height="235" alt="{03B2E75D-7154-4A72-A9F4-15FA6382F022}" src="https://github.com/user-attachments/assets/31174466-62e0-4a33-92e5-ba44842484ea" />
 
-Tampilkan Data Rental (Read): Menampilkan daftar seluruh transaksi penyewaan yang sedang aktif di dalam sistem. Output mencakup ringkasan ID Transaksi, data pelanggan, unit skateboard yang disewa, durasi, serta kalkulasi otomatis untuk total biaya sewa.
+Saat program dijalankan, sistem menampilkan antarmuka berbasis konsol yang menyediakan lima menu utama untuk mengelola transaksi rental skateboard, mencakup operasi penambahan data (Create), penampilan riwayat sewa (Read), pembaruan durasi hari (Update), penghapusan data (Delete), serta opsi untuk keluar dari aplikasi. Seluruh pembacaan input menu ini telah diproteksi menggunakan blok try-catch guna menangani InputMismatchException, sehingga jika pengguna memasukkan karakter selain angka, program tidak akan mengalami crash melainkan langsung menampilkan pesan peringatan dan me-refresh tampilan menu.
 
-Update Lama Sewa (Update): Fitur modifikasi untuk memperbarui durasi peminjaman. Sistem akan mencari entri berdasarkan ID Transaksi dan memperbarui nilai lama sewa, yang sangat berguna jika pelanggan ingin melakukan perpanjangan masa rental.
-
-Hapus Data Rental (Delete): Menghapus catatan transaksi spesifik dari memori berdasarkan input ID Transaksi. Fitur ini digunakan saat pelanggan telah menyelesaikan transaksi (mengembalikan unit) atau apabila terjadi kesalahan input data.
-
-Keluar: Menghentikan while loop utama dan menutup eksekusi program CLI (Command Line Interface) secara aman.
+<img width="423" height="353" alt="{5036F1A1-14B9-45F7-AD82-DC1AE0615733}" src="https://github.com/user-attachments/assets/143b4c6f-1a6d-448b-9764-f4044bf38566" />
+![Uploading {E9D002D5-BFDF-454A-91B8-840F30C1D74D}.png…]()
