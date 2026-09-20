@@ -27,3 +27,4 @@ Pada tahap ini, sistem menguji fungsi penghapusan data (Delete) melalui opsi 4 d
 
 <img width="695" height="402" alt="{B9867F18-A226-4ACC-8DD4-FBA5F74CDD73}" src="https://github.com/user-attachments/assets/0cbe43d2-28f0-4e49-9e94-b43998e39ff8" />
 
+Pada tahap akhir pengujian, pengguna memilih opsi 5 untuk keluar dari aplikasi. Sistem merespons instruksi tersebut dengan mengubah variabel kontrol perulangan while menjadi false, menutup objek Scanner, dan mencetak pesan terminasi program secara aman sebelum eksekusi ditutup dengan status BUILD SUCCESS.
