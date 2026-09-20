@@ -40,8 +40,13 @@ Saat muncul Pilih menu (1-5):, ketik huruf (misal: a atau woi), lalu tekan Enter
 
 
 2. Uji ID Rental yang duplikat
-Pada Masukkan ID Rental:, ketik ID yang sudah ada di dummy data, yaitu RNT-01, lalu tekan Enter.
+Pada Masukkan ID Rental:, ketik ID yang sudah ada di data, yaitu RNT-01, lalu tekan Enter.
+
 <img width="498" height="129" alt="{70C73EC3-6B7E-4C12-911A-177B2CAC1C77}" src="https://github.com/user-attachments/assets/a1f09b88-2ad3-4c36-b1c4-da179f838f75" />
+
+
+3.Uji Typo Huruf pada Angka Input
+Pada Menu 1: Saat diminta Masukkan Lama Sewa (Hari): atau Masukkan Tarif Sewa per Hari:, ketik huruf (misal: tiga atau seratus ribu).
 
 <img width="429" height="160" alt="{68A3C2BB-C981-4CF5-AD0F-757C35043D12}" src="https://github.com/user-attachments/assets/7d5c5fd4-d7f8-4983-91f7-617d94dee616" />
 
