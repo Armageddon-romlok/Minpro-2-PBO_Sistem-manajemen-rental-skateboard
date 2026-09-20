@@ -53,7 +53,11 @@ Pada Menu 1: Saat diminta Masukkan Lama Sewa (Hari): atau Masukkan Tarif Sewa pe
 
 4.Uji ID Tidak Ditemukan (Menu 3 atau Menu 4)
 
-<img width="434" height="63" alt="image" src="https://github.com/user-attachments/assets/c7b8996c-f69e-43ae-9006-bca7d1a27b38" />
-
 <img width="575" height="149" alt="{5772C37D-5924-41F5-BF95-CA594DA704A9}" src="https://github.com/user-attachments/assets/898c4c3d-11a6-4b78-a1f7-2387a5fa1a06" />
 <img width="538" height="86" alt="{6FC23287-4430-463F-A59F-22AAC1427F34}" src="https://github.com/user-attachments/assets/a553be92-675a-473c-85c1-cd9cde4318f3" />
+
+
+5.Uji Input Angka di Luar Menu (1–5)
+Saat pengguna memasukkan angka 6, sistem menjalankan blok default pada switch-case karena angka tersebut berada di luar rentang menu 1–5, lalu menampilkan pesan peringatan dan me-refresh menu utama tanpa crash.
+
+<img width="434" height="63" alt="image" src="https://github.com/user-attachments/assets/35c5ed02-343d-4724-a330-c5506f0d69e8" />
