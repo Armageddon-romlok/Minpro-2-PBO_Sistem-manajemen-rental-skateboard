@@ -10,6 +10,8 @@ Saat pertama kali program dijalankan dan pengguna memilih opsi 2, sistem mengeks
 <img width="472" height="352" alt="{3C0D3B27-FEC6-4A02-BE72-E3A3F05BBF3D}" src="https://github.com/user-attachments/assets/90d37e4f-7eb7-46a4-9018-f0ebc02f30a7" />
 <img width="479" height="776" alt="{6C079F66-EB4A-478E-AD2C-5801D17B46F8}" src="https://github.com/user-attachments/assets/eebb5b9d-a750-4c06-8130-9cf95530415e" />
 
+Pada tahap ini dilakukan pengujian fungsi penambahan data (Create) yang dilanjutkan dengan pembacaan ulang (Read) untuk memvalidasi pembaruan memori. Pengguna memilih opsi 1 untuk mencatat transaksi rental baru dengan ID RNT-03 atas nama penyewa Luthfi selama 6 hari, serta memilih unit tipe Street Skate dengan ID SRT-02, merk Baker, tarif sewa Rp 66000.0, dan ukuran roda 52mm. Setelah data berhasil disimpan ke dalam ArrayList, pengguna memilih opsi 2 untuk menampilkan seluruh daftar transaksi. Keluaran konsol membuktikan bahwa data RNT-03 telah berhasil ditambahkan pada urutan ketiga dengan kalkulasi total biaya yang tepat sebesar Rp 396000.0 hasil perkalian tarif harian dan durasi sewa.
+
 
 <img width="437" height="144" alt="image" src="https://github.com/user-attachments/assets/038de5b8-e0f8-4901-a0ef-cf458f323e8c" />
 <img width="488" height="233" alt="{15B473DF-1A5A-49C6-9D9C-15032D2B18E6}" src="https://github.com/user-attachments/assets/d15f5f6b-e860-47cb-bfb5-e8c1ff788efb" />
